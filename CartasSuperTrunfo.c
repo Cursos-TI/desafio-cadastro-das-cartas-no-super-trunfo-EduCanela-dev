@@ -34,7 +34,7 @@ int main() {
 
 
 
-    printf("\n\ inicial: %s\n", inicial);
+    printf("\n\ninicial: %s\n", inicial);
     printf("código: %s%s\n", inicial, codigo);
     printf("nome: %s\n", cidade);
     printf("população: %d\n", população);
