@@ -12,12 +12,13 @@ int main (){
     char estado[20], estado2[20]; 
     char codigo[20], codigo2[20];
     char cidade[20], cidade2[20];
-    int populacao, populacao2;
+    unsigned long int populacao, populacao2;
     float area, area2;
     float PIB, PIB2;
     int pontosT, pontosT2;
     float densidadeP, densidadeP2;
     float PIBpercapita, PIBpercapita2;
+    float SuperPoder, SuperPoder2;
 
 
 
@@ -77,31 +78,11 @@ int main (){
     //PIB per capita
     PIBpercapita = (PIB * 1e9) / populacao;
     PIBpercapita2 = (PIB2 * 1e9) / populacao2;
+    //superpoder
+    SuperPoder = (float) populacao + (float) area + (float) PIB + (float) pontosT + (float) PIBpercapita + (float) (1.0 / densidadeP);
+    SuperPoder2 = (float) populacao2 + (float) area2 + (float) PIB2 + (float) pontosT2 + (float) PIBpercapita2 + (float) (1.0 / densidadeP2);
 
 
-/*
-Carta 1:
-Estado: A
-Código: A01
-Nome da Cidade: São Paulo
-População: 12325000
-Área: 1521.11 km²
-PIB: 699.28 bilhões de reais
-Número de Pontos Turísticos: 50
-Densidade Populacional: 8102.47 hab/km²
-PIB per Capita: 56724.32 reais
-
-Carta 2:
-Estado: B
-Código: B02
-Nome da Cidade: Rio de Janeiro
-População: 6748000
-Área: 1200.25 km²
-PIB: 300.50 bilhões de reais
-Número de Pontos Turísticos: 30
-Densidade Populacional: 5622.24 hab/km²
-PIB per Capita: 44532.91 reais
-*/
     //exibição CARTA1
     printf("Estado: %s\n", estado);
     printf("Código: %s\n", codigo);
@@ -126,5 +107,38 @@ PIB per Capita: 44532.91 reais
     printf("Densidade populacional: %.2f hab/km^2\n", densidadeP2);
     printf("PIB per capita: %.2f reais\n", PIBpercapita2);
 
+
+    //BATALHA DE CARTAS
+/*
+Carta 1:
+Estado: A
+Código: A01
+Nome da Cidade: São Paulo
+População: 12325000
+Área: 1521.11 km²
+PIB: 699.28 bilhões de reais
+Número de Pontos Turísticos: 50
+Densidade Populacional: 8102.47 hab/km²
+PIB per Capita: 56724.32 reais
+
+Carta 2:
+Estado: B
+Código: B02
+Nome da Cidade: Rio de Janeiro
+População: 6748000
+Área: 1200.25 km²
+PIB: 300.50 bilhões de reais
+Número de Pontos Turísticos: 30
+Densidade Populacional: 5622.24 hab/km²
+PIB per Capita: 44532.91 reais
+*/
+
+printf("Carta 1 venceu?: %d.\n", populacao > populacao2);
+printf("Carta 1 venceu?: %d.\n", area > area2);
+printf("Carta 1 venceu?: %d.\n", PIB > PIB2);
+printf("Carta 1 venceu?: %d.\n", pontosT > pontosT2);
+printf("Carta 1 venceu?: %d.\n", densidadeP < densidadeP2);
+printf("Carta 1 venceu?: %d.\n", PIBpercapita > PIBpercapita2);
+printf("Carta 1 venceu?: %d.\n", SuperPoder > SuperPoder2);
     return 0;
 }
